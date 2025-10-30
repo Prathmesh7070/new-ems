@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  color: #808080;
+}
+body{
+  background-color: #111;
+}
+#tasklist::-webkit-scrollbar{
+    background-color: transparent;
+    height: 5px;
+}
+#tasklist::-webkit-scrollbar-thumb{
+  background-color: rgb(143, 143, 143);
+  border-radius: 50px;
+}
+/* 🌟 Global Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.7s ease-out both;
+}
+
+/* 🎨 Button Styles */
+.task-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  isolation: isolate;
+  color: #fff;
+}
+
+/* Base overlay for animation */
+.task-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+/* Button Variants */
+.task-btn.accept::before {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+.task-btn.complete::before {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+.task-btn.reject::before {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+}
+
+/* Hover animation */
+.task-btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Text should stay visible above gradient */
+.task-btn span {
+  position: relative;
+  z-index: 10;
+  color: #e5e7eb;
+  transition: color 0.3s ease;
+}
+.task-btn:hover span {
+  color: #fff;
+}
+
+/* ✨ Subtle click and glow */
+.task-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+/* 🌟 Continuous soft glow effect */
+.task-btn.accept {
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.25);
+}
+.task-btn.complete {
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
+}
+.task-btn.reject {
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
+}
+
+/* On hover, intensify the glow */
+.task-btn:hover.accept {
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
+}
+.task-btn:hover.complete {
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+}
+.task-btn:hover.reject {
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.5);
+}
+/* 🎯 Persist click color with smooth gradient animation */
+.task-btn.clicked::before {
+  transform: scaleX(1) !important; /* keep full gradient after click */
+  transform-origin: left;
+}
+
+/* Optional: slightly intensify glow when clicked */
+.task-btn.clicked.accept {
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
+}
+.task-btn.clicked.complete {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+}
+.task-btn.clicked.reject {
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+}
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 8s infinite ease-in-out;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+/* 🌌 Login Page Enhanced Styling */
+.login-container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e1b4b, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Animated gradient blobs (same as signup) */
+.login-container::before,
+.login-container::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  animation: blob 8s infinite ease-in-out;
+}
+.login-container::before {
+  background: #6366f1;
+  top: -80px;
+  left: -60px;
+}
+.login-container::after {
+  background: #ec4899;
+  bottom: -80px;
+  right: -60px;
+  animation-delay: 2s;
+}
+
+/* ✨ Glassmorphism form */
+.login-form {
+  position: relative;
+  z-index: 10;
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
+  padding: 2.5rem;
+  width: 24rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeIn 0.7s ease-out both;
+}
+
+/* 🧠 Title */
+.login-form h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+/* Inputs */
+.login-form input {
+  background-color: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(100, 116, 139, 0.4);
+  color: #f1f5f9;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.login-form input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+  transform: scale(1.02);
+}
+
+/* 🌈 Button */
+.login-form button {
+  position: relative;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+.login-form button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ec4899, #6366f1);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+  z-index: 0;
+}
+.login-form button:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.login-form button:hover {
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+}
+.login-form button span {
+  position: relative;
+  z-index: 2;
+}
