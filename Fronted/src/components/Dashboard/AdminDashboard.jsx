@@ -10,7 +10,7 @@ const AdminDashboard = ({ changeUser }) => {
   const fetchOverview = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/tasks/overview", {
+      const res = await fetch("https://project-for-ems.onrender.com/api/tasks/overview", {
         headers: { Authorization: `Bearer ${token}` },
       });
 

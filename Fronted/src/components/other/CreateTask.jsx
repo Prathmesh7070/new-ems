@@ -13,7 +13,7 @@ const CreateTask = ({ onTaskCreated }) => {
     const fetchEmployees = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5000/api/users/employees", {
+        const res = await fetch("https://project-for-ems.onrender.com/api/users/employees", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -38,7 +38,7 @@ const CreateTask = ({ onTaskCreated }) => {
       );
       if (!emp) return alert("Employee not found with that email");
 
-      const res = await fetch("http://localhost:5000/api/tasks/create", {
+      const res = await fetch("https://project-for-ems.onrender.com/api/tasks/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

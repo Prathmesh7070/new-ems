@@ -20,7 +20,7 @@ const EmployeeDashboard = ({ changeUser }) => {
       const token = localStorage.getItem("token");
       if (!token) return;
 
-      const res = await fetch("http://localhost:5000/api/tasks", {
+      const res = await fetch("https://project-for-ems.onrender.com/api/tasks", {
         headers: { Authorization: `Bearer ${token}` },
       });
 

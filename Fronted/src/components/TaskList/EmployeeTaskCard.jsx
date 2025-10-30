@@ -33,7 +33,7 @@ const EmployeeTaskCard = ({ task, updateTaskStatus }) => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/tasks/upload/${task._id}`,
+        `https://project-for-ems.onrender.com/api/tasks/upload/${task._id}`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },

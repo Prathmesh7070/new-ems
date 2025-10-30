@@ -11,7 +11,7 @@ const AllTask = ({ data = [], onDismiss }) => {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch(`http://localhost:5000/api/users/${id}`, {
+      const res = await fetch(`https://project-for-ems.onrender.com/api/users/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -33,7 +33,7 @@ const AllTask = ({ data = [], onDismiss }) => {
 
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:5000/api/tasks/file/${fileId}`, {
+      const res = await fetch(`https://project-for-ems.onrender.com/api/tasks/file/${fileId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
